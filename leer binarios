@@ -1,2 +1,20 @@
 #include <iostream>
-#include 
+#include <fstream>
+using namespace std;
+
+int main(){
+    ifstream fp;
+    int i;
+    fp.open("tickets.dat", ios::in|ios::binary);
+    if (!fp.is_open()){
+        cout << "Error al abrir el archivo" << endl;
+        return 1; //error
+    }
+    fp.read((char*)&i, sizeof(int));
+    
+    
+    cout << i << endl; //Leer el primer string asociado a la wea 
+
+    fp.close();
+    return 0;
+}
